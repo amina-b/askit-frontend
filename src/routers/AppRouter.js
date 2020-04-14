@@ -1,11 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link, NavLink} from 'react-router-dom';
-import { HomePage } from '../components/Homepage';
+import { HomePage } from '../components/homepage/Homepage';
+import QuestionPage from '../components/questionpage/QuestionPage';
+import LoginPage from '../components/loginpage/LoginPage';
+import RegisterPage from '../components/registerpage/RegisterPage';
 
 const AppRouter = () => (
     <BrowserRouter>
       <Switch>
         <Route path="/" component={HomePage} exact={true}/> 
+        <Route path="/questionpage" component={QuestionPage}/> 
+        <Route path="/loginpage" component={LoginPage}/> 
+        <Route path="/registerpage" component={RegisterPage}/> 
         {/* <Route path="/edit/:id"component={}/> */}
         {/* <Route component={NotFoundPage}/> */}
       </Switch>

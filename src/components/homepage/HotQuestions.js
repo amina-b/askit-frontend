@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {getHotQuestions} from '../redux/actions';
+import {getHotQuestions} from '../../redux/actions';
 
 export class HotQuestions extends React.Component {
     constructor(props){
@@ -9,10 +9,10 @@ export class HotQuestions extends React.Component {
     }
 
     componentDidMount(){
-        fetch("http://localhost:3000/hotquestions", { method: "GET" })
+        fetch("http://localhost:3000/hot-questions", { method: "GET" })
         .then(res => res.json())
-        .then(HotQuestions => 
-                    this.props.dispatch(getHotQuestions({ HotQuestions }))
+        .then(hotQuestions => 
+                    this.props.dispatch(getHotQuestions({ hotQuestions }))
         );
     }
 

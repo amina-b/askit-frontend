@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getTopUsers } from '../redux/actions';
+import { getTopUsers } from '../../redux/actions';
 
 class TopUsers extends React.Component {
     constructor(props){
         super(props);
         console.log(props);
     }
-
+    
     componentDidMount() {
-        fetch("http://localhost:3000/topusers", { method: "GET" })
+        fetch("http://localhost:3000/top-users", { method: "GET" })
         .then(res => res.json())
         .then(topUsers => 
                 this.props.dispatch(getTopUsers({ topUsers }))

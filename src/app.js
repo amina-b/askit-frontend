@@ -6,7 +6,10 @@ import { createStore } from 'redux';
 import { reducer } from './redux/reducer';
 import './styles/style.css'
 
-const store = createStore(reducer);
+const store = createStore(
+    reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 const jsx = (
     <Provider store={store}>

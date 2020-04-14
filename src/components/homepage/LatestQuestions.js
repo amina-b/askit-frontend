@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { loadLatestQuestions } from '../redux/actions';
+import { loadLatestQuestions } from '../../redux/actions';
 
 class LatestQuestions extends React.Component {
     constructor(props) {
@@ -21,7 +21,9 @@ class LatestQuestions extends React.Component {
             <div>
                 {
                     this.props.latestQuestions.map((question, index) => (
-                        <div key={index}>{question.text}</div>
+                    <div className="mb-4 border-bottom" key={index}>{index+1}. Pitanje: {question.text}
+                        <div className="mt-2 ml-5 font-italic text-secondary"> Created: {new Date(Number.parseInt(question.dateOfCreation)).toLocaleDateString()}</div> 
+                    </div>                
                     ))
                 }
             </div>
@@ -31,4 +33,4 @@ class LatestQuestions extends React.Component {
 
 export default connect((state) => {
     return state;
-})(LatestQuestions);
+})(LatestQuestions); 

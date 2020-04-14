@@ -27,6 +27,7 @@
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
+    "simple-react-validator": "^1.4.6",
     "style-loader": "^0.18.2",
     "validator": "^13.0.0",
     "webpack": "^3.1.0",

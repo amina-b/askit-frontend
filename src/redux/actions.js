@@ -25,3 +25,11 @@ export function getHotQuestions(payload) {
         hotQuestions: payload.hotQuestions
     }
 }
+
+export function userLogin(payload) {
+    console.log(payload);
+    return {
+        type: "IS USER LOGIN",
+        user: payload.user
+    }
+}

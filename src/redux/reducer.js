@@ -1,13 +1,8 @@
  const defaultState = {
-     latestQuestions: [],
-     topUsers: [{ username: "amina", odgovor: 3 },
-                { username: "mesud", odgovor: 4 },
-                { username: "nesko", odgovor: 2 }],
-    hotQuestions: [ { text: "prvo pitanje", likes: 3, dislikes:5 },
-                    { text: "drugo pitanje", likes: 3, dislikes:2 },
-                    { text: "trece pitanje", likes: 5, dislikes:1 }
-                ],
-    user: null
+    latestQuestions: [],
+    topUsers: [],
+    hotQuestions: [],
+    user: null 
  };
 
 export function reducer(state = defaultState, action) {
@@ -27,6 +22,13 @@ export function reducer(state = defaultState, action) {
                 ...state,
                 hotQuestions: action.hotQuestions
             }
+        case "IS USER LOGIN": {
+            console.log(action);
+            return {
+                ...state,
+                user: action.user
+            }
+        }
         default:
             return state;
     }
