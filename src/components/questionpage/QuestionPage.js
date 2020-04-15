@@ -43,12 +43,11 @@ class QuestionPage extends React.Component {
             method: "POST",
             body: JSON.stringify({
                 text: this.state.answer,
-                userId: this.props.user.userId,
                 questionId: this.id
             }),
             headers: {
                 'Content-Type': 'application/json', 
-                'Authorization': 'Bearer ' + this.props.user 
+                'Authorization': 'Bearer ' + localStorage.getItem('access_token') 
             }
         })
         .then(res => res.json())
@@ -61,7 +60,7 @@ class QuestionPage extends React.Component {
     render() {
         return (
             <div className="container width">
-                { this.props.user &&
+                { localStorage.getItem('access_token') &&
                     (
                         <form onSubmit={(e) => { this.handleSubmit(e) }}>
                             <h1 className="mb-4">Add Answer!</h1>

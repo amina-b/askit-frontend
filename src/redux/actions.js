@@ -40,3 +40,10 @@ export function loadAnswers(payload) {
         answers: payload.answers
     }
 }
+
+export function loadMyQuestions(payload) {
+    return {
+        type: "MY QUESTIONS",
+        myQuestions: payload.myQuestions
+    }
+}

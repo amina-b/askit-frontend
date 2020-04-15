@@ -43,10 +43,8 @@ class LoginPage extends React.Component {
                 body: JSON.stringify(this.state)
             })
             .then(res => res.text())
-            .then(user => {
-                this.props.dispatch(userLogin({
-                    user,
-                }));
+            .then(access_token => {
+                localStorage.setItem('access_token', access_token);
                 this.props.history.push('/');
             })
             .catch(() => this.setState({
@@ -76,7 +74,6 @@ class LoginPage extends React.Component {
                             <button className="form-control btn btn-primary">Login</button>
                         </div>
                         { this.state.error && <p className="errors">{this.state.error}</p> }
-                        {console.log(this.props.user)}
                     </form>
                 </div>
             </div>

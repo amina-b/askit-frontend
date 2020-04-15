@@ -26,7 +26,7 @@ class AddQuestion extends React.Component {
             }),
             headers: {
                 'Content-Type': 'application/json', 
-                'Authorization': 'Bearer ' + this.props.user 
+                'Authorization': 'Bearer ' + localStorage.getItem('access_token') 
             }
         })
         .then(res => res.json())

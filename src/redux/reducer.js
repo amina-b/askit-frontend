@@ -3,7 +3,8 @@
     topUsers: [],
     hotQuestions: [],
     user: null,
-    answers: []
+    answers: [],
+    myQuestions: []
  };
 
 export function reducer(state = defaultState, action) {
@@ -34,6 +35,12 @@ export function reducer(state = defaultState, action) {
             return {
                 ...state,
                 answers: action.answers
+            }
+        }
+        case "MY QUESTIONS": {
+            return {
+                ...state,
+                myQuestions: action.myQuestions
             }
         }
         default:

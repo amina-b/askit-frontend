@@ -36,7 +36,7 @@ class LatestQuestions extends React.Component {
            method: "PUT",
            headers: {
             'Content-Type': 'application/json', 
-            'Authorization': 'Bearer ' + this.props.user 
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token')
         },
            body: JSON.stringify({
                questionId: questionId,
@@ -51,7 +51,7 @@ class LatestQuestions extends React.Component {
             method: "PUT",
             headers: {
              'Content-Type': 'application/json', 
-             'Authorization': 'Bearer ' + this.props.user 
+             'Authorization': 'Bearer ' + localStorage.getItem('access_token')
          },
             body: JSON.stringify({
                 questionId: questionId,
@@ -69,7 +69,7 @@ class LatestQuestions extends React.Component {
                         <div className="mt-2 ml-5 font-italic text-secondary"> 
                             <p>Created: {new Date(Number.parseInt(question.dateOfCreation)).toLocaleDateString()}</p>
                             {
-                                this.props.user && (
+                                localStorage.getItem('access_token') && (
                                     <div>
                                         <button className="ml-5 btn-danger btn-sm mb-3" onClick={this.handleForLikes(question._id)}>
                                             Likes
@@ -84,7 +84,7 @@ class LatestQuestions extends React.Component {
                     </div>                
                     ))
                 }
-                <button onClick={() => this.handleLoadMore()}>LOAD MORE</button>
+                <button className="btn btn-info mb-3" onClick={() => this.handleLoadMore()}>LOAD MORE</button>
             </div>
         );
     }
