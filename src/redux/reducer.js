@@ -2,7 +2,8 @@
     latestQuestions: [],
     topUsers: [],
     hotQuestions: [],
-    user: null 
+    user: null,
+    answers: []
  };
 
 export function reducer(state = defaultState, action) {
@@ -27,6 +28,12 @@ export function reducer(state = defaultState, action) {
             return {
                 ...state,
                 user: action.user
+            }
+        }
+        case "LOAD ANSWERS": {
+            return {
+                ...state,
+                answers: action.answers
             }
         }
         default:

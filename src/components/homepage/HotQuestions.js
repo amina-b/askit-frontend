@@ -22,9 +22,9 @@ export class HotQuestions extends React.Component {
                 {
                     this.props.hotQuestions.map((hotquestion, index) => (
                     <div key={index}>
-                        <div>{hotquestion.text}</div>
-                        <div className="ml-5">Likes: {hotquestion.likes}</div>
-                        <div className="ml-5">Dsikes: {hotquestion.likes}</div>
+                        <div className="mt-5">{index+1}. {hotquestion.text}</div>
+                        <div className="ml-5 text-danger">Number of likes: {hotquestion.likes}</div>
+                        <div className="ml-5 text-secondary">Number of dislikes: {hotquestion.dislikes}</div>
                     </div>
                     ))
                 }

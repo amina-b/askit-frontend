@@ -11,7 +11,6 @@ class Header extends React.Component {
             <div>
                 <nav className="nav mb-4">
                     <Link className="nav-link active mr-5" to="/" >HOMEPAGE </Link>
-                    <Link className="nav-link active mr-5" to="/questionpage" >QUESTION PAGE </Link>
                     <Link className="nav-link active mr-5" to="/myquestions" >MY QUESTIONS </Link>
                     <Link className="nav-link active mr-5" to="/loginpage" >LOGIN </Link>
                     <Link className="nav-link active mr-5" to="/registerpage" >REGISTER </Link>

@@ -33,6 +33,7 @@ class AddQuestion extends React.Component {
         .then(question => this.props.dispatch(loadLatestQuestions({ 
             latestQuestions: [question, ...this.props.latestQuestions]
         })));
+
     }
     
     render() {  

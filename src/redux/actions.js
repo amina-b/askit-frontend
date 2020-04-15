@@ -27,9 +27,16 @@ export function getHotQuestions(payload) {
 }
 
 export function userLogin(payload) {
-    console.log(payload);
     return {
         type: "IS USER LOGIN",
         user: payload.user
+    }
+}
+
+
+export function loadAnswers(payload) {
+    return {
+        type: "LOAD ANSWERS",
+        answers: payload.answers
     }
 }

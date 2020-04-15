@@ -9,9 +9,9 @@ const AppRouter = () => (
     <BrowserRouter>
       <Switch>
         <Route path="/" component={HomePage} exact={true}/> 
-        <Route path="/questionpage" component={QuestionPage}/> 
-        <Route path="/loginpage" component={LoginPage}/> 
         <Route path="/registerpage" component={RegisterPage}/> 
+        <Route path="/questionpage/:id" component={QuestionPage}/> 
+        <Route path="/loginpage/" component={LoginPage}/> 
         {/* <Route path="/edit/:id"component={}/> */}
         {/* <Route component={NotFoundPage}/> */}
       </Switch>

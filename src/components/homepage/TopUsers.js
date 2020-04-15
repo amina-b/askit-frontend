@@ -22,8 +22,8 @@ class TopUsers extends React.Component {
                 {
                     this.props.topUsers.map((user, index) => (
                         <div key={index}>
-                            <p>{user.username}</p>
-                                <div className="mb-3 ml-5">Number of answers: {user.odgovor}</div>
+                            <div className="mt-5">{index+1}. {user.username}</div>
+                                <div className="ml-5">Number of answers: {user.numberOfAnswers}</div>
                         </div>
                     ))
                 }
