@@ -5,7 +5,6 @@ import {getHotQuestions} from '../../redux/actions';
 export class HotQuestions extends React.Component {
     constructor(props){
         super(props);
-        console.log(props);
     }
 
     componentDidMount(){

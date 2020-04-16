@@ -7,7 +7,7 @@ class LatestQuestions extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            numberOfQuestions: 3
+            numberOfQuestions: 20
         }
     }
 
@@ -24,9 +24,9 @@ class LatestQuestions extends React.Component {
     }
 
     handleLoadMore() {
-        this.loadLatestQuestions(this.state.numberOfQuestions * 2);
+        this.loadLatestQuestions(this.state.numberOfQuestions + 20);
         this.setState((prevState) => ({
-            numberOfQuestions: prevState.numberOfQuestions * 2
+            numberOfQuestions: prevState.numberOfQuestions + 20
         }))
     }
 

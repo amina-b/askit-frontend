@@ -15,28 +15,24 @@ export default class RegisterPage extends React.Component {
     }
 
     handleFirstNameChange = (firstname) => {
-        console.log(firstname);
         this.setState(() => ({
             firstname
         }));
     }
 
     handleLastNameChange = (lastname) => {
-        console.log(lastname);
         this.setState(() => ({
             lastname
         }));
     }
 
     handleUsernameChange = (username) => {
-        console.log(username);
         this.setState(() => ({
             username
         }));
     }
 
     handlePasswordChange = (password) => {
-        console.log(password);
         this.setState(() => ({
             password
         }));

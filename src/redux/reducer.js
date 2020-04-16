@@ -25,7 +25,6 @@ export function reducer(state = defaultState, action) {
                 hotQuestions: action.hotQuestions
             }
         case "IS USER LOGIN": {
-            console.log(action);
             return {
                 ...state,
                 user: action.user

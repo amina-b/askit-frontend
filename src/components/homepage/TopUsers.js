@@ -5,7 +5,6 @@ import { getTopUsers } from '../../redux/actions';
 class TopUsers extends React.Component {
     constructor(props){
         super(props);
-        console.log(props);
     }
     
     componentDidMount() {

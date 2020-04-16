@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { userLogin } from '../../redux/actions';
 import { loadAnswers } from '../../redux/actions';
-
+import { aswersOfOneUser } from '../../redux/actions';
 
 class QuestionPage extends React.Component {
     constructor(props){
@@ -12,7 +12,6 @@ class QuestionPage extends React.Component {
             answer: ""
         }
     }
-    
     
     handleAnswerChange = (answer) => {
         this.setState(() => ({
@@ -32,7 +31,6 @@ class QuestionPage extends React.Component {
         .then(res => res.json())
         .then(answers => 
             this.props.dispatch(loadAnswers({ answers }))); 
-
     }
 
     handleSubmit = (e) => {
@@ -57,6 +55,16 @@ class QuestionPage extends React.Component {
 
     }
 
+    handleDelete = (e) => {
+        e.preventDefault();
+        const id = e.target.elements.answerId.value;
+        fetch("http://localhost:3000/answers/" + id, { method: "DELETE", headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token') 
+        }}).then(() => this.props.dispatch(loadAnswers({
+            answers: [...this.props.answers.filter(answer => answer._id !== id)]
+        })));
+    }
+
     render() {
         return (
             <div className="container width">
@@ -76,8 +84,17 @@ class QuestionPage extends React.Component {
                 <h1 className="text-info mb-4 mt-4">Answers: </h1>
                     {  
                         this.props.answers.map((answer, index) => (
-                            <div className="mb-4 border-bottom">
-                                <p key={index}><span className="text-primary">Number {index+1}.</span> {answer.text}</p>
+                            <div key={index} className="mb-4 border-bottom">
+                                <form onSubmit={(e) => this.handleDelete(e)}>
+                                <p className="fixed-width"><span className="text-primary">Number {index+1}.</span> {answer.text}</p>
+                                    {answer.userId == localStorage.getItem('userId') && (
+                                        <div>
+                                            <input hidden name="answerId" value={answer._id}></input>
+                                            <button className="btn-danger border-round mt-3 mb-3 btn-small"> Delete</button>
+                                        </div> 
+                                    )} 
+                                       
+                                </form>
                             </div>
                         ))
                     }

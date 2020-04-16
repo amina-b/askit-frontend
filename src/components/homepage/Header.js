@@ -15,7 +15,11 @@ class Header extends React.Component {
                     <Link className="nav-link active mr-5" to="/loginpage" >LOGIN </Link>
                     <Link className="nav-link active mr-5" to="/registerpage" >REGISTER </Link>
                     <Link className="nav-link active mr-5" to="/profilepage" >PROFILE </Link>
-                    <Link className="nav-link active mr-5" to="/loginpage" onClick={() => localStorage.removeItem('access_token')} >LOGOUT </Link>
+                    <Link className="nav-link active mr-5" to="/loginpage" onClick={() => {
+                        localStorage.removeItem('access_token');
+                        localStorage.removeItem('userId');
+                        localStorage.removeItem('username');
+                    }} >LOGOUT </Link>
                 </nav>
                 { localStorage.getItem('access_token') &&
                  (

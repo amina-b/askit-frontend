@@ -17,14 +17,12 @@ class LoginPage extends React.Component {
     }
 
     handleUsernameChange = (username) => {
-        console.log(username);
         this.setState(() => ({
             username
         }));
     }
 
     handlePasswordChange = (password) => {
-        console.log(password);
         this.setState(() => ({
             password
         }));
@@ -34,7 +32,6 @@ class LoginPage extends React.Component {
         e.preventDefault();
         
         if (this.validator.allValid()) {
-            console.log(this.state);
             fetch("http://localhost:3000/users/login", {
                 method: "POST",
                 headers: {
@@ -43,8 +40,11 @@ class LoginPage extends React.Component {
                 body: JSON.stringify(this.state)
             })
             .then(res => res.text())
-            .then(access_token => {
-                localStorage.setItem('access_token', access_token);
+            .then(userInfo => {
+                userInfo = JSON.parse(userInfo);
+                localStorage.setItem('access_token', userInfo.userToken);
+                localStorage.setItem('userId', userInfo.userId);
+                localStorage.setItem('username', userInfo.username);
                 this.props.history.push('/');
             })
             .catch(() => this.setState({

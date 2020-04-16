@@ -14,8 +14,6 @@ const AppRouter = () => (
         <Route path="/questionpage/:id" component={QuestionPage}/> 
         <Route path="/loginpage" component={LoginPage}/> 
         <Route path="/myquestions" component={MyQuestions}/> 
-        {/* <Route path="/edit/:id"component={}/> */}
-        {/* <Route component={NotFoundPage}/> */}
       </Switch>
     </BrowserRouter>
 );
